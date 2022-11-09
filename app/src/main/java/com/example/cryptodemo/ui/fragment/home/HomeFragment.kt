@@ -1,12 +1,12 @@
-package com.example.cryptodemo.ui.fragment
+package com.example.cryptodemo.ui.fragment.home
 
 import androidx.fragment.app.viewModels
 import com.example.cryptodemo.base.BaseFragment
 import com.example.cryptodemo.databinding.FragmentHomeBinding
-import com.example.cryptodemo.ui.viewmodel.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
-class HomeFragment : BaseFragment<FragmentHomeBinding,HomeViewModel>(
+@AndroidEntryPoint
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
    FragmentHomeBinding::inflate
 ) {
    override val viewModel: HomeViewModel by viewModels()
