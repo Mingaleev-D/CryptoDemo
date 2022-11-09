@@ -12,7 +12,7 @@ import retrofit2.HttpException
  * @data : 9/11/2022
  */
 
-class BaseRepository {
+abstract class BaseRepository {
 
    suspend fun <T> safeApiRequest(
       apiRequest: suspend () -> T
