@@ -3,6 +3,7 @@ package com.example.cryptodemo.ui.fragment.home
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.example.cryptodemo.base.BaseFragment
 import com.example.cryptodemo.databinding.FragmentHomeBinding
 import com.example.cryptodemo.model.successfulResponse.Data
@@ -45,6 +46,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
    private fun setRecycler(data: List<Data>) {
       val mAdapter = HomeAdapter(object : ItemClickListener {
          override fun onItemClick(coin: Data) {
+            if (coin.symbol != null) {
+               val navigation =
+                  HomeFragmentDirections.actionHomeFragmentToDetailsFragment(coin.symbol)
+               Navigation.findNavController(requireView()).navigate(navigation)
+            }
 
          }
 

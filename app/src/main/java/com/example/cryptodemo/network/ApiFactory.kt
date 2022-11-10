@@ -1,5 +1,6 @@
 package com.example.cryptodemo.network
 
+import com.example.cryptodemo.model.detailResponse.DetailResponse
 import com.example.cryptodemo.model.successfulResponse.CryptoResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -19,4 +20,10 @@ interface ApiFactory {
       @Header("X-CMC_PRO_API_KEY") apiKey: String,
       @Query("limit") limit:String
    ):CryptoResponse
+
+   @GET("v1/cryptocurrency/info")
+   suspend fun getDetail(
+      @Header("X-CMC_PRO_API_KEY") apiKey: String,
+      @Query("symbol") symbol:String
+   ):DetailResponse
 }
